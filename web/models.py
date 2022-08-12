@@ -12,10 +12,10 @@ class Article(models.Model):
                                verbose_name="نویسنده")
     short_description = models.CharField(max_length=355, null=True, verbose_name="توضیحات کوتاه")
     slug = models.SlugField(unique=True, db_index=True, verbose_name="لینک")
-    photo = models.ImageField(upload_to='images')
+    photo = models.ImageField(upload_to='images', verbose_name="عکس")
     published = models.DateField(db_index=True, verbose_name="تاریخ انتشار")
     description = RichTextField(verbose_name="متن مقاله")
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, verbose_name="فعال / غیر فعال")
 
     class Meta:
         verbose_name = "مقاله"
