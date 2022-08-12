@@ -1,0 +1,14 @@
+<!-- Post preview-->
+<div class="post-preview">
+    <a href="{% url 'post-detail' slug=post.slug %}">
+        <h2 class="post-title">{{ post.title|title }}</h2>
+        <h3 class="post-subtitle">{{ post.short_description|capfirst }}</h3>
+    </a>
+    <p class="post-meta">
+        Posted by
+        <a href="#!">{{ post.author.get_full_name }}</a>
+        {{ post.published }}
+    </p>
+</div>
+<!-- Divider-->
+<hr class="my-4"/>

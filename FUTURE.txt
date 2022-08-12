@@ -1,0 +1,10 @@
+1.author setting
+2.contact form
+3.custom admin panel
+4.rtl
+5.older posts page settings
+6.change template to angular template
+
+######################
+1.model home page
+2.media (checked)
