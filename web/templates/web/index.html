@@ -26,10 +26,22 @@
                     {% include 'web/includes/web/post_preview.html' %}
                 {% endfor %}
                 <!-- Pager-->
-                <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
-                                                                href="{% url 'posts' %}">Older
-                    Posts
-                    →</a></div>
+                <div class=" justify-content-end mb-4">
+                    {% if latest_post.has_previous %}
+                        <a class="btn btn-primary text-uppercase"
+                           href="{% url 'page' latest_post.previous_page_number %}">Newer
+                            Posts
+                            &larr;</a>
+                    {% endif %}
+                    {% if latest_post.has_next %}
+                        <a class="btn btn-primary text-uppercase"
+                           href="{% url 'page' latest_post.next_page_number %}">Older
+                            Posts
+                            →</a>
+                    {% endif %}
+                </div>
+
+
             </div>
         </div>
     </div>

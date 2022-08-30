@@ -1,12 +1,16 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from . import models
 
 
 # Create your views here.
 
-def index(request):
+def index(request, page=1):
+    article_list = models.Article.objects.filter(is_active=True).order_by("-published")
+    paginator = Paginator(article_list, 3)
+    articles = paginator.get_page(page)
     return render(request, "web/index.html", {
-        'latest_post': list(models.Article.objects.filter(is_active=True).order_by("-published"))[:3],
+        'latest_post': articles,
     })
 
 
